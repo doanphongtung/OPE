@@ -40,16 +40,16 @@ named according to the name of the corresponding algorithm.
 Each folder includes a file implementing the algorithm and 
 the other file run the algorithm to learn model from a large corpus.
 
-Estimate a model by executing:
+Estimate a model by changing directoy to the folder of an algorithm and executing:
 
-     python run_[name of algorithm] .py  [train file] [setting file] 
+     python ./run_[name of algorithm] .py  [train file] [setting file] 
 [model folder] [test data folder]
 
 [train file]                      path of the training data.
 [setting file]                    path of setting file provides parameters 
                                   for learning.
 [model folder]                    path of the folder for saving the learned model.
-[test data folder]             	  path of the folder contains data for computing
+[test data folder]                path of the folder contains data for computing
                                   perplexity (described in details in B).
 
 The model folder will contain some more files. These files contain some statistics of how the model is after a mini-batch is processed. These statistics include topic mixture sparsity, perplexity of the model, top ten words of each topic, and time for finishing E and M steps. 
@@ -80,7 +80,7 @@ B. MEASURE
 Perplexity is a popular measure to see predictiveness and generalization of a topic model.
 
 In order to compute perplexity of the model, the testing data is needed. Each document in testing data is randomly divided into two disjoint part w_obs and w_ho. After 5 times of independent dividing the testing data, there are 5 data couples (w_obs, w_ho)
-They are stored in [divided data folder] with corresponding file name is of the form:
+They are stored in [test data folder] with corresponding file name is of the form:
 
 data_test_[i]_part_1.txt and data_test_[i]_part_2.txt
 
